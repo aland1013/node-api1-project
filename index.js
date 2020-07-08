@@ -1,9 +1,11 @@
 const express = require('express');
 const shortid = require('shortid');
+const cors = require('cors');
 
 const server = express();
 
 server.use(express.json());
+server.use(cors());
 
 let users = [];
 
@@ -52,8 +54,12 @@ server.delete('/api/users/:id', (req, res) => {
   const match = users.find(user => user.id === id);
 
   if (match) {
-    users = users.filter(user => user.id !== id);
-    res.status(200).json(match);
+    try {
+      users = users.filter(user => user.id !== id);
+      res.status(200).json(match);
+    } catch (err) {
+      res.status(500).json({ errorMessage: "The user could not be removed" });
+    }
   } else {
     res.status(404).json({ message: "The user with the specified ID does not exist" });
   }
@@ -80,7 +86,7 @@ server.put('/api/users/:id', (req, res ) => {
       }  
     }
   } else {
-    res.status(404).json({ errorMessage: "The user with the specified ID does not exist" })
+    res.status(404).json({ message: "The user with the specified ID does not exist" })
   }
 });
 
