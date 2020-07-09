@@ -4,6 +4,11 @@ import Users from './components/Users';
 import AddUserForm from './components/AddUserForm';
 import EditUserForm from './components/EditUserForm';
 
+import Container from '@material-ui/core/Container';
+import AppBar from '@material-ui/core/AppBar';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+
 function App() {
   const [users, setUsers] = useState([]);
   
@@ -14,11 +19,22 @@ function App() {
   }, [users]);
 
   return (
-    <>
+    <Container>
+      <AppBar position='static'>
+        <Typography variant='h2' style={{paddingLeft: 25}}>
+          Node API 1 Project
+        </Typography>
+      </AppBar>
       <Users users={users} setUsers={setUsers} />
-      <AddUserForm />
-      <EditUserForm />
-    </>
+      <Grid container justify='space-evenly'>
+        <Grid item>
+          <AddUserForm />
+        </Grid>
+        <Grid item>
+          <EditUserForm />
+        </Grid>
+      </Grid>
+    </Container>
   );
 }
 

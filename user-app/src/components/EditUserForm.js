@@ -1,7 +1,29 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& > *': {
+      margin: theme.spacing(1),
+      width: '25ch',
+    },
+    display: 'flex',
+    flexDirection: 'column'
+  },
+  button: {
+    width: 70
+  }
+}));
+
 const EditUserForm = () => {
+  const classes = useStyles();
+
   const [formState, setFormState] = useState({
     id: '',
     name: '',
@@ -26,39 +48,37 @@ const EditUserForm = () => {
   }
 
   return (
-    <>
-      <h3>Edit a User</h3>
-      <form onSubmit={formSubmit}>
-      <label htmlFor='id'>
-        Id: 
-        <input
+    <Grid container direction='column'>
+      <Typography variant='h5'>Edit a User</Typography>
+      <form className={classes.root} onSubmit={formSubmit}>
+      
+        <TextField
+          variant='outlined'
+          label='Id'
           type='text'
           name='id'
           onChange={inputChange}
           value={formState.id}
         />
-      </label>
-      <label htmlFor='name'>
-        Name: 
-        <input
+        <TextField
+          variant='outlined'
+          label='Name'
           type='text'
           name='name'
           onChange={inputChange}
           value={formState.name}
         />
-      </label>
-      <label htmlFor='bio'>
-        Bio: 
-        <input
+        <TextField
+          variant='outlined'
+          label='Bio'
           type='text'
           name='bio'
           onChange={inputChange}
           value={formState.bio}
         />
-      </label>
-      <button type='submit'>submit</button>
+      <Button className={classes.button} variant='outlined' color='primary' type='submit'>submit</Button>
     </form>
-    </>
+    </Grid>
   );
 };
 
