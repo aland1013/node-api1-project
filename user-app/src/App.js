@@ -13,11 +13,12 @@ import EditUserForm from './components/EditUserForm';
 
 const App = () => {
   const [users, setUsers] = useState([]);
-  
+
   useEffect(() => {
-    axios.get('http://localhost:5000/api/users')
-      .then(res => setUsers(res.data))
-      .catch(err => console.log('err', err));
+    axios
+      .get('http://localhost:5000/api/users')
+      .then((res) => setUsers(res.data))
+      .catch((err) => console.log('err', err));
   }, [users]);
 
   return (
@@ -28,7 +29,7 @@ const App = () => {
         </Typography>
       </AppBar>
       <Users users={users} setUsers={setUsers} />
-      <Divider style={{ marginBottom: 30 }}/>
+      <Divider style={{ marginBottom: 30 }} />
       <Grid container justify='space-evenly'>
         <Grid item>
           <AddUserForm />
@@ -39,6 +40,6 @@ const App = () => {
       </Grid>
     </Container>
   );
-}
+};
 
 export default App;

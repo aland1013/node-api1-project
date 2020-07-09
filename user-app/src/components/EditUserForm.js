@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
       margin: theme.spacing(1),
-      width: '25ch',
+      width: '25ch'
     },
     display: 'flex',
     flexDirection: 'column'
@@ -42,16 +42,16 @@ const EditUserForm = () => {
   const formSubmit = (e) => {
     e.preventDefault();
 
-    axios.put(`http://localhost:5000/api/users/${formState.id}`, 
-      { name: formState.name, bio: formState.bio }
-    );
-  }
+    axios.put(`http://localhost:5000/api/users/${formState.id}`, {
+      name: formState.name,
+      bio: formState.bio
+    });
+  };
 
   return (
     <Grid item container direction='column'>
       <Typography variant='h5'>Edit a User:</Typography>
       <form className={classes.root} onSubmit={formSubmit}>
-      
         <TextField
           variant='outlined'
           label='Id'
@@ -76,10 +76,10 @@ const EditUserForm = () => {
           onChange={inputChange}
           value={formState.bio}
         />
-        <Button 
-          className={classes.button} 
-          variant='outlined' 
-          color='primary' 
+        <Button
+          className={classes.button}
+          variant='outlined'
+          color='primary'
           type='submit'
         >
           submit

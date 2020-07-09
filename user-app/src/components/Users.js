@@ -15,7 +15,7 @@ const useStyles = makeStyles({
     paddingBottom: 10
   },
   button: {
-    margin: "auto"
+    margin: 'auto'
   }
 });
 
@@ -24,34 +24,31 @@ const Users = ({ users, setUsers }) => {
 
   const deleteUser = (id) => {
     axios.delete(`http://localhost:5000/api/users/${id}`);
-    axios.get('http://localhost:5000/api/users')
-      .then(res => setUsers(res.data));
-  }
+    axios
+      .get('http://localhost:5000/api/users')
+      .then((res) => setUsers(res.data));
+  };
 
   return (
     <>
-      <Typography 
-        variant='h4' 
-        align='center' 
-        style={{ marginTop: 20 }}
-      >
-        Users: 
+      <Typography variant='h4' align='center' style={{ marginTop: 20 }}>
+        Users:
       </Typography>
       <Grid container>
-        {users.map(user => (
+        {users.map((user) => (
           <Grid item key={user.id}>
             <Card className={classes.root}>
-              <CardContent align='center' >
+              <CardContent align='center'>
                 <Typography variant='h4'>{user.name}</Typography>
                 <Typography variant='subtitle1'>Bio: {user.bio}</Typography>
                 <Typography variant='subtitle1'>Id: {user.id}</Typography>
               </CardContent>
               <CardActions>
-                <Button 
-                  size='small' 
-                  variant='outlined' 
-                  color='secondary' 
-                  className={classes.button} 
+                <Button
+                  size='small'
+                  variant='outlined'
+                  color='secondary'
+                  className={classes.button}
                   onClick={() => deleteUser(user.id)}
                 >
                   delete
@@ -59,10 +56,10 @@ const Users = ({ users, setUsers }) => {
               </CardActions>
             </Card>
           </Grid>
-      ))}
+        ))}
       </Grid>
     </>
   );
-}
+};
 
 export default Users;

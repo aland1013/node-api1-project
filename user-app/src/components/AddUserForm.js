@@ -4,7 +4,7 @@ import shortid from 'shortid';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography'
+import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
       margin: theme.spacing(1),
-      width: '25ch',
+      width: '25ch'
     },
     display: 'flex',
     flexDirection: 'column'
@@ -27,7 +27,7 @@ const AddUserForm = () => {
 
   const [formState, setFormState] = useState({
     name: '',
-    bio: '',
+    bio: ''
   });
 
   const inputChange = (e) => {
@@ -43,15 +43,13 @@ const AddUserForm = () => {
     e.preventDefault();
     const id = shortid.generate();
 
-    axios.post('http://localhost:5000/api/users', 
-      { ...formState, id }
-    );
+    axios.post('http://localhost:5000/api/users', { ...formState, id });
   };
 
   return (
     <Grid item container direction='column'>
       <Typography variant='h5'>Add a User:</Typography>
-      <form className={classes.root} onSubmit={formSubmit}> 
+      <form className={classes.root} onSubmit={formSubmit}>
         <TextField
           variant='outlined'
           label='Name'
@@ -59,7 +57,7 @@ const AddUserForm = () => {
           name='name'
           onChange={inputChange}
           value={formState.name}
-        /> 
+        />
         <TextField
           variant='outlined'
           label='Bio'
@@ -68,10 +66,10 @@ const AddUserForm = () => {
           onChange={inputChange}
           value={formState.bio}
         />
-        <Button 
-          className={classes.button} 
-          variant='outlined' 
-          color='primary' 
+        <Button
+          className={classes.button}
+          variant='outlined'
+          color='primary'
           type='submit'
         >
           submit
@@ -79,6 +77,6 @@ const AddUserForm = () => {
       </form>
     </Grid>
   );
-}
+};
 
 export default AddUserForm;
