@@ -7,7 +7,7 @@ const server = express();
 server.use(express.json());
 server.use(cors());
 
-let users = [];
+let users = [{ name: 'Adam', bio: 'Lawyer', id: shortid.generate() }, { name: 'Paul', bio: 'Kid', id: shortid.generate() } ];
 
 server.post('/api/users', (req, res) => {
   const newUser = req.body;
