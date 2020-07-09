@@ -48,8 +48,8 @@ const EditUserForm = () => {
   }
 
   return (
-    <Grid container direction='column'>
-      <Typography variant='h5'>Edit a User</Typography>
+    <Grid item container direction='column'>
+      <Typography variant='h5'>Edit a User:</Typography>
       <form className={classes.root} onSubmit={formSubmit}>
       
         <TextField

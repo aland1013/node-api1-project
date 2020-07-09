@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Users from './components/Users';
-import AddUserForm from './components/AddUserForm';
-import EditUserForm from './components/EditUserForm';
 
 import Container from '@material-ui/core/Container';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import Divider from '@material-ui/core/Divider';
 
-function App() {
+import Users from './components/Users';
+import AddUserForm from './components/AddUserForm';
+import EditUserForm from './components/EditUserForm';
+
+const App = () => {
   const [users, setUsers] = useState([]);
   
   useEffect(() => {
@@ -21,11 +23,12 @@ function App() {
   return (
     <Container>
       <AppBar position='static'>
-        <Typography variant='h2' style={{paddingLeft: 25}}>
+        <Typography variant='h2' style={{ paddingLeft: 25 }}>
           Node API 1 Project
         </Typography>
       </AppBar>
       <Users users={users} setUsers={setUsers} />
+      <Divider style={{ marginBottom: 30 }}/>
       <Grid container justify='space-evenly'>
         <Grid item>
           <AddUserForm />

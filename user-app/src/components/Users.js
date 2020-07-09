@@ -11,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   root: {
-    margin: 50,
+    margin: 30,
     paddingBottom: 10
   },
   button: {
@@ -30,7 +30,7 @@ const Users = ({ users, setUsers }) => {
 
   return (
     <>
-      <Typography variant='h4' align='center' style={{ marginTop: 50 }}>Users: </Typography>
+      <Typography variant='h4' align='center' style={{ marginTop: 20 }}>Users: </Typography>
       <Grid container>
         {users.map(user => (
           <Grid item key={user.id}>

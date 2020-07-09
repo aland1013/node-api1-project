@@ -47,8 +47,8 @@ const AddUserForm = () => {
   }
 
   return (
-    <Grid container direction='column'>
-      <Typography variant='h5'>Add a User</Typography>
+    <Grid item container direction='column'>
+      <Typography variant='h5'>Add a User:</Typography>
       <form className={classes.root} onSubmit={formSubmit}> 
           <TextField
             variant='outlined'
