@@ -30,7 +30,13 @@ const Users = ({ users, setUsers }) => {
 
   return (
     <>
-      <Typography variant='h4' align='center' style={{ marginTop: 20 }}>Users: </Typography>
+      <Typography 
+        variant='h4' 
+        align='center' 
+        style={{ marginTop: 20 }}
+      >
+        Users: 
+      </Typography>
       <Grid container>
         {users.map(user => (
           <Grid item key={user.id}>
@@ -41,7 +47,15 @@ const Users = ({ users, setUsers }) => {
                 <Typography variant='subtitle1'>Id: {user.id}</Typography>
               </CardContent>
               <CardActions>
-                <Button size='small' variant='outlined' color='secondary' className={classes.button} onClick={() => deleteUser(user.id)}>delete</Button>
+                <Button 
+                  size='small' 
+                  variant='outlined' 
+                  color='secondary' 
+                  className={classes.button} 
+                  onClick={() => deleteUser(user.id)}
+                >
+                  delete
+                </Button>
               </CardActions>
             </Card>
           </Grid>

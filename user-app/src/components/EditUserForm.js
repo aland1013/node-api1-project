@@ -76,8 +76,15 @@ const EditUserForm = () => {
           onChange={inputChange}
           value={formState.bio}
         />
-      <Button className={classes.button} variant='outlined' color='primary' type='submit'>submit</Button>
-    </form>
+        <Button 
+          className={classes.button} 
+          variant='outlined' 
+          color='primary' 
+          type='submit'
+        >
+          submit
+        </Button>
+      </form>
     </Grid>
   );
 };

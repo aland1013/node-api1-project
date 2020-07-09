@@ -43,30 +43,39 @@ const AddUserForm = () => {
     e.preventDefault();
     const id = shortid.generate();
 
-    axios.post('http://localhost:5000/api/users', { ...formState, id })
-  }
+    axios.post('http://localhost:5000/api/users', 
+      { ...formState, id }
+    );
+  };
 
   return (
     <Grid item container direction='column'>
       <Typography variant='h5'>Add a User:</Typography>
       <form className={classes.root} onSubmit={formSubmit}> 
-          <TextField
-            variant='outlined'
-            label='Name'
-            type='text'
-            name='name'
-            onChange={inputChange}
-            value={formState.name}
-          /> 
-          <TextField
-            variant='outlined'
-            label='Bio'
-            type='text'
-            name='bio'
-            onChange={inputChange}
-            value={formState.bio}
-          />
-        <Button className={classes.button} variant='outlined' color='primary' type='submit'>submit</Button>
+        <TextField
+          variant='outlined'
+          label='Name'
+          type='text'
+          name='name'
+          onChange={inputChange}
+          value={formState.name}
+        /> 
+        <TextField
+          variant='outlined'
+          label='Bio'
+          type='text'
+          name='bio'
+          onChange={inputChange}
+          value={formState.bio}
+        />
+        <Button 
+          className={classes.button} 
+          variant='outlined' 
+          color='primary' 
+          type='submit'
+        >
+          submit
+        </Button>
       </form>
     </Grid>
   );
