@@ -15,6 +15,7 @@ let users = [
   { name: 'Paul', bio: 'Brother', id: shortid.generate() }
 ];
 
+/* ----- POST /api/users ----- */
 server.post('/api/users', (req, res) => {
   const newUser = req.body;
 
@@ -37,6 +38,7 @@ server.post('/api/users', (req, res) => {
   }
 });
 
+/* ----- GET /api/users ----- */
 server.get('/api/users', (req, res) => {
   try {
     res.status(200).json(users);
@@ -47,6 +49,7 @@ server.get('/api/users', (req, res) => {
   }
 });
 
+/* ----- GET /api/users/:id ----- */
 server.get('/api/users/:id', (req, res) => {
   const { id } = req.params;
 
@@ -61,6 +64,7 @@ server.get('/api/users/:id', (req, res) => {
   }
 });
 
+/* ----- DELETE /api/users/:id ----- */
 server.delete('/api/users/:id', (req, res) => {
   const { id } = req.params;
 
@@ -82,6 +86,7 @@ server.delete('/api/users/:id', (req, res) => {
   }
 });
 
+/* ----- PUT /api/users/:id ----- */
 server.put('/api/users/:id', (req, res) => {
   const { id } = req.params;
 
