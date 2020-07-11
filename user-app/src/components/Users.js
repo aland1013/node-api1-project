@@ -12,7 +12,8 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles({
   root: {
     margin: 30,
-    paddingBottom: 10
+    paddingBottom: 10,
+    width: 200
   },
   button: {
     margin: 'auto'
